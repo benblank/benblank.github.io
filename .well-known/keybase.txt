@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/benblank
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://five35.com
+  * I am benblank (https://keybase.io/benblank) on keybase.
+  * I have a public key ASBOywU78RTPxyCrOsiMPpKta_pJPgiI3tdDHAZV-hDjGwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01204ecb053bf114cfc720ab3ac88c3e92ad6bfa493e0888ded7431c0655fa10e31b0a",
+      "host": "keybase.io",
+      "kid": "01204ecb053bf114cfc720ab3ac88c3e92ad6bfa493e0888ded7431c0655fa10e31b0a",
+      "uid": "cb05089ed834fd2bfd4cab86c477bd19",
+      "username": "benblank"
+    },
+    "merkle_root": {
+      "ctime": 1672340441,
+      "hash": "e3b50e51d1fa55baab0da4f17bddfc188f85c2d6f1b6d965402a911c6c8b11ad2f0f179e312c8395a152ba9c22b3c74f9d7163cf24aa524ed77c28c6e06df2b3",
+      "hash_meta": "12a74a56b0cfafc49c4aae2e54be6e4cdfc82e1e0dffd4dbaef9482820bd8bb4",
+      "seqno": 23783837
+    },
+    "service": {
+      "entropy": "Zt0StTzK0uaZxuVLzuWORr47",
+      "hostname": "five35.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.1"
+  },
+  "ctime": 1672340455,
+  "expire_in": 504576000,
+  "prev": "44cd6de202d09fa914eab5ba7f3b9f6ea4078203a5b2dced2f195e1b9d67a935",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgTssFO/EUz8cgqzrIjD6SrWv6ST4IiN7XQxwGVfoQ4xsKp3BheWxvYWTESpcCEsQgRM1t4gLQn6kU6rW6fzufbqQHggOlstztLxleG51nqTXEIKtcpoifOdxokujDeKJAvSGtklIIB6W1HATjL0FfXjCLAgHCo3NpZ8RAwzxQP/oY/Y4IRuuZxE/Ax+yYTw/VuKwrneVuCndhRzNGyRuFYpgQeEJ/zIgWSECwCLjyHeusc6Fw20dG55b0AqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIGxQIRpG3XrwEXGurTWjDK9GyKmAysPmkferQ6WQb6u+o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/benblank
+
+==================================================================
