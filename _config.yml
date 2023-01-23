@@ -25,12 +25,5 @@ plugins:
 # This is the "Minima 3.0" theme, which hasn't been published as a gem.
 remote_theme: jekyll/minima
 
-exclude:
-  - .well-known/
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+include:
+  - .well-known
