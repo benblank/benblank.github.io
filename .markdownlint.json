@@ -1,0 +1,15 @@
+{
+  "default": true,
+  "heading-style": { "style": "atx" },
+  "ul-style": { "style": "asterisk" },
+  "no-trailing-spaces": { "br_spaces": 0 },
+  "no-hard-tabs": { "spaces_per_tab": 2 },
+  "line-length": { "code_blocks": false, "strict": true },
+  "ol-prefix": { "style": "ordered" },
+  "no-inline-html": { "allowed_elements": ["abbr", "detail", "summary"] },
+  "hr-style": { "style": "---" },
+  "code-block-style": { "style": "fenced" },
+  "code-fence-style": { "style": "backtick" },
+  "emphasis-style": { "style": "asterisk" },
+  "strong-style": { "style": "asterisk" }
+}
