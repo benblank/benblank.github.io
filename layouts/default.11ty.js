@@ -3,12 +3,13 @@ class DefaultLayout {
     return { title: "535's Place" };
   }
 
-  render({ content, section, title }) {
+  render({ content, eleventy, section, title }) {
     return `
       <!doctype html>
       <html>
         <head>
           <title>${title}${section ? " — " + section : ""}</title>
+          <meta name="generator" content="${eleventy.generator}">
         </head>
 
         <body>${content}</body>

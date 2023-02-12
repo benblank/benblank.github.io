@@ -1,17 +1,13 @@
-const prettier = require("prettier");
+const markdownItFootnote = require("markdown-it-footnote");
 
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ static: "." }, { dot: true });
+const anchorsConfig = require("./config/anchors.js");
+const codeHighlightConfig = require("./config/code-highlight.js");
+const deepMerge = require("./config/deep-merge.js");
+const detailsConfig = require("./config/container-details.js");
+const prettierConfig = require("./config/prettier.js");
 
-  eleventyConfig.addTransform("prettier", function prettify(content) {
-    if (this.page.outputPath?.endsWith(".html")) {
-      return prettier.format(content, { filepath: this.page.outputPath });
-    }
-
-    return content;
-  });
-
-  return {
+module.exports = (eleventyConfig) => {
+  let result = {
     dir: {
       input: "content",
       layouts: "../layouts",
@@ -20,4 +16,14 @@ module.exports = function (eleventyConfig) {
 
     templateFormats: ["11ty.js", "md"],
   };
+
+  eleventyConfig.addPassthroughCopy({ static: "." }, { dot: true });
+  eleventyConfig.amendLibrary("md", (md) => md.use(markdownItFootnote));
+
+  result = deepMerge(result, anchorsConfig(eleventyConfig));
+  result = deepMerge(result, codeHighlightConfig(eleventyConfig));
+  result = deepMerge(result, detailsConfig(eleventyConfig));
+  result = deepMerge(result, prettierConfig(eleventyConfig));
+
+  return result;
 };
