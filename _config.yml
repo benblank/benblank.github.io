@@ -27,3 +27,4 @@ remote_theme: jekyll/minima
 
 include:
   - .well-known
+  - avatars
