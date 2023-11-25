@@ -10,17 +10,16 @@ Though I had picked up the domain name five35.com years ago, I had never really
 done anything with it and, after a hosting change a while back, the site was
 completely in shambles. But now, I had the time and motivation to *do* something
 about it, so I set about turning it into a place where I could post things I
-wrote. (For example, this very article!)
+wrote. (For example, *this* article.)
 
 ## First attempt: Jekyll
 
-For what would be a pretty straightforward blog site, an
-[<abbr title="static site generator">SSG</abbr>][ssg] was appealing.
-[GitHub Pages][github-pages] seemed a natural fit — it's no-cost hosting for
-static pages, has builtin support for [Jekyll][jekyll] (a popular SSG), and I
-was already a GitHub user. I quickly threw together a placeholder site and,
-after some minor hiccups with DNS[^dns-hiccup] and filenames beginning with a
-dot, the site was online!
+For what would be a pretty straightforward blog site, an [SSG][ssg] was
+appealing. [GitHub Pages][github-pages] seemed a natural fit — it's no-cost
+hosting for static pages, has builtin support for [Jekyll][jekyll] (a popular
+SSG), and I was already a GitHub user. I quickly threw together a placeholder
+site and, after some minor hiccups with DNS[^dns-hiccup] and filenames beginning
+with a dot, the site was online!
 
 Next, it was time to make it feel a little more like home, with a custom theme.
 I [found one that looked like a good place to start][chirpy], but things quickly
@@ -61,6 +60,8 @@ the "from scratch" experience and simply take inspiration from starters I liked.
     Quick tip — if you set up a CNAME record (say, a "www." redirect), be sure
     to point it directly to your ".github.io" domain, **not** your custom domain
     name!
+
+*[SSG]: static site generator
 
 [act]: https://github.com/nektos/act
 [chirpy]: https://chirpy.cotes.page/
