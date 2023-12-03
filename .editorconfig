@@ -9,5 +9,5 @@ insert_final_newline = true
 max_line_length = 80
 trim_trailing_whitespace = true
 
-[*.js]
+[*.{js,mjs,ts}]
 max_line_length = 120
