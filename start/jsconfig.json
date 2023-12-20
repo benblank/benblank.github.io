@@ -4,13 +4,12 @@
     "@tsconfig/node20/tsconfig.json"
   ],
   "compilerOptions": {
-    "allowJs": false,
-    "checkJs": false,
-    "outDir": "build",
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
 
     // Let ESLint handle these.
     "noUnusedLocals": false,
     "noUnusedParameters": false
-  },
-  "include": ["src/**/*.ts"]
+  }
 }

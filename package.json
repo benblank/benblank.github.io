@@ -9,13 +9,13 @@
     "url": "git+https://github.com/benblank/benblank.github.io.git"
   },
   "scripts": {
-    "build": "node start.mjs build",
+    "build": "node start/index.mjs build",
     "ci": "npm-run-all ci:*",
     "ci:prettier": "prettier --check .",
-    "clean": "node start.mjs clean",
-    "serve": "node start.mjs serve",
-    "start": "node start.mjs",
-    "watch": "node start.mjs watch"
+    "clean": "node start/index.mjs clean",
+    "serve": "node start/index.mjs serve",
+    "start": "node start/index.mjs",
+    "watch": "node start/index.mjs watch"
   },
   "prettier": {
     "proseWrap": "always"
@@ -29,6 +29,9 @@
     "@types/markdown-it-container": "^2.0.9",
     "@types/markdown-it-footnote": "^3.0.3",
     "@types/node": "^20.10.0",
+    "@types/yargs": "^17.0.32",
+    "ansi-regex": "^6.0.1",
+    "chalk": "^5.3.0",
     "chokidar": "^3.5.3",
     "dts-gen": "^0.7.3",
     "execa": "^8.0.1",
@@ -36,6 +39,7 @@
     "prettier": "^3.1.0",
     "recursive-copy": "^2.0.14",
     "rimraf": "^5.0.5",
+    "strip-ansi-stream": "^2.0.1",
     "typescript": "^5.3.2",
     "yargs": "^17.7.2"
   },
