@@ -1,6 +1,6 @@
 import { execaCommand } from "execa";
 
-import { Logifier } from "./logifier.mjs";
+import { Logifier } from "./logifier.js";
 
 /** @type {import("execa").Options} */
 const EXEC_COMMON_OPTIONS = { preferLocal: true, stdin: "ignore", stripFinalNewline: false };
@@ -19,7 +19,7 @@ export const execInherit = (command, extraOptions = {}) => {
  * @param {import("execa").Options} extraOptions
  */
 // "pipe" is also the default, but specified for clarity.
-export const execPipe = (/** @type {string} */ command, extraOptions = {}) => {
+export const execPipe = (command, extraOptions = {}) => {
   console.log(`Executing "${command}"...`);
   return execaCommand(command, { ...EXEC_COMMON_OPTIONS, stderr: "pipe", stdout: "pipe", ...extraOptions });
 };

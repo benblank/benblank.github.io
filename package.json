@@ -4,24 +4,25 @@
   "author": "Ben \"535\" Blank",
   "license": "BSD-3-Clause",
   "private": true,
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/benblank/benblank.github.io.git"
   },
   "scripts": {
-    "build": "node start/index.mjs build",
+    "build": "node start build",
     "ci": "npm-run-all ci:*",
     "ci:prettier": "prettier --check .",
-    "clean": "node start/index.mjs clean",
-    "serve": "node start/index.mjs serve",
-    "start": "node start/index.mjs",
-    "watch": "node start/index.mjs watch"
+    "clean": "node start clean",
+    "serve": "node start serve",
+    "start": "node start",
+    "watch": "node start watch"
   },
   "prettier": {
     "proseWrap": "always"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "3.0.0-alpha.3",
     "@sindresorhus/slugify": "^2.2.1",
     "@tsconfig/node20": "^20.1.2",
     "@tsconfig/strictest": "^2.0.2",
@@ -33,7 +34,6 @@
     "ansi-regex": "^6.0.1",
     "chalk": "^5.3.0",
     "chokidar": "^3.5.3",
-    "dts-gen": "^0.7.3",
     "execa": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.0",
@@ -49,10 +49,5 @@
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-highlightjs": "^4.0.1"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@11ty/eleventy@2.0.1": "patches/@11ty__eleventy@2.0.1.patch"
-    }
   }
 }

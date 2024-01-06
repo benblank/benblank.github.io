@@ -2,9 +2,9 @@ import { rimraf } from "rimraf";
 import { hideBin } from "yargs/helpers";
 import yargs from "yargs/yargs";
 
-import * as content from "./content.mjs";
-import * as eleventy from "./eleventy.mjs";
-import * as typescript from "./typescript.mjs";
+import * as content from "./content.js";
+import * as eleventy from "./eleventy.js";
+import * as typescript from "./typescript.js";
 
 async function cleanBuildArtifacts() {
   process.stdout.write('Removing build artifact directories "_site" and "build"...');

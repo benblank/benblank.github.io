@@ -6,6 +6,8 @@
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "outDir": "build",
 
     // Let ESLint handle these.

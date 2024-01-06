@@ -4,7 +4,7 @@ import { dirname } from "node:path";
 import { Readable } from "node:stream";
 import copyRaw from "recursive-copy";
 import { rimraf } from "rimraf";
-import { Logifier } from "./logifier.mjs";
+import { Logifier } from "./logifier.js";
 
 // https://github.com/microsoft/TypeScript/issues/49298#issuecomment-1140425750
 const copy = "default" in copyRaw ? copyRaw.default : copyRaw;

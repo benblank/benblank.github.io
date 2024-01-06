@@ -1,4 +1,4 @@
-import { execInherit, execPipe, logify } from "./common.mjs";
+import { execInherit, execPipe, logify } from "./common.js";
 
 const PREFIX = /\d\d?:\d\d:\d\d [AP]M - /;
 

@@ -13,7 +13,7 @@ type DeepPartial<T> = T extends Record<any, any>
     }
   : T;
 
-module.exports = (eleventyConfig: UserConfig): DeepPartial<LocalConfig> => {
+export default (eleventyConfig: UserConfig): DeepPartial<LocalConfig> => {
   eleventyConfig.setWatchThrottleWaitTime(500);
 
   // By default, Eleventy ignores everything in `.gitignore`, but that includes
