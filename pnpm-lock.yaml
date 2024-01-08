@@ -29,6 +29,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.10.0
     version: 20.10.0
+  '@types/vhtml':
+    specifier: ^2.2.9
+    version: 2.2.9
   markdown-it-abbr:
     specifier: ^1.0.4
     version: 1.0.4
@@ -56,6 +59,9 @@ devDependencies:
   typescript:
     specifier: ^5.3.2
     version: 5.3.2
+  vhtml:
+    specifier: ^2.2.0
+    version: 2.2.0
 
 packages:
 
@@ -246,6 +252,10 @@ packages:
     resolution: {integrity: sha512-D0WfRmU9TQ8I9PFx9Yc+EBHw+vSpIub4IDvQivcp26PtPrdMGAq5SDcpXEo/epqa/DXotVpekHiLNTg3iaKXBQ==}
     dependencies:
       undici-types: 5.26.5
+    dev: true
+
+  /@types/vhtml@2.2.9:
+    resolution: {integrity: sha512-maEIRJb+PdK2FWDORl0a0aNUSGlniMl8pN+7WbanLzx1Gry4gLfsT0C9O/6JucPPBHCNrqDSImr2QcsUENLKUg==}
     dev: true
 
   /a-sync-waterfall@1.0.1:
@@ -1871,6 +1881,10 @@ packages:
     dependencies:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
+    dev: true
+
+  /vhtml@2.2.0:
+    resolution: {integrity: sha512-TPXrXrxBOslRUVnlVkiAqhoXneiertIg86bdvzionrUYhEuiROvyPZNiiP6GIIJ2Q7oPNVyEtIx8gMAZZE9lCQ==}
     dev: true
 
   /which-boxed-primitive@1.0.2:
