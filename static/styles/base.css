@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Gorton Perfected";
-  src: url("/fonts/GortonPerfectedVF.woff2");
+  src: url(/fonts/GortonPerfectedVF.woff2);
 }
 
 /*
@@ -71,6 +71,7 @@ body {
   --content-right: calc(50% + 400px);
   --shadow-color: #bbb;
   --shadow-depth: 0.5lh;
+
   background: linear-gradient(
     to right,
     var(--primary-color-dark) 0%,
@@ -87,6 +88,7 @@ body {
   );
 
   display: grid;
+  font-family: sans-serif;
   grid-template-columns: 1fr 578.8854382px 221.1145618px 1fr;
   grid-template-rows: var(--page-header-height) 1fr var(--page-footer-height);
   margin: 0;
