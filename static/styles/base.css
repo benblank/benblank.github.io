@@ -20,6 +20,7 @@
   --primary-color-light: #eee;
   --rail-width: calc(1 / (1 + var(--phi) * var(--phi)));
   --sqrt-five: 223.6%;
+  font-family: sans-serif, emoji;
 }
 
 #rail {
@@ -44,7 +45,7 @@ main {
 }
 
 #rail figure figcaption {
-  font-family: "Gorton Perfected";
+  font-family: "Gorton Perfected", inherit;
   text-align: center;
 }
 
@@ -88,7 +89,6 @@ body {
   );
 
   display: grid;
-  font-family: "Segoe UI", "Segoe UI Emoji";
   grid-template-columns: 1fr 578.8854382px 221.1145618px 1fr;
   grid-template-rows: var(--page-header-height) 1fr var(--page-footer-height);
   margin: 0;
