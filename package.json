@@ -9,14 +9,17 @@
     "type": "git",
     "url": "git+https://github.com/benblank/benblank.github.io.git"
   },
+  "engines": {
+    "node": ">=20.6.0"
+  },
   "scripts": {
-    "build": "node start build",
-    "ci": "npm-run-all ci:*",
+    "build": "node --import=./tsc-register.js node_modules/@11ty/eleventy/cmd.cjs --config=eleventy.config.ts",
+    "ci": "npm-run-all --parallel --silent ci:*",
     "ci:prettier": "prettier --check .",
-    "clean": "node start clean",
-    "serve": "node start serve",
-    "start": "node start",
-    "watch": "node start watch"
+    "ci:types": "tsc",
+    "clean": "rimraf _site",
+    "serve": "node --import=./tsc-register.js node_modules/@11ty/eleventy/cmd.cjs --config=eleventy.config.ts --incremental --serve",
+    "watch": "node --import=./tsc-register.js node_modules/@11ty/eleventy/cmd.cjs --config=eleventy.config.ts --incremental --watch"
   },
   "prettier": {
     "proseWrap": "always"
@@ -30,24 +33,14 @@
     "@types/markdown-it-container": "^2.0.9",
     "@types/markdown-it-footnote": "^3.0.3",
     "@types/node": "^20.10.0",
-    "@types/yargs": "^17.0.32",
-    "ansi-regex": "^6.0.1",
-    "chalk": "^5.3.0",
-    "chokidar": "^3.5.3",
-    "execa": "^8.0.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.1.0",
-    "recursive-copy": "^2.0.14",
-    "rimraf": "^5.0.5",
-    "strip-ansi-stream": "^2.0.1",
-    "typescript": "^5.3.2",
-    "yargs": "^17.7.2"
-  },
-  "dependencies": {
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.3",
-    "markdown-it-highlightjs": "^4.0.1"
+    "markdown-it-highlightjs": "^4.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.2"
   }
 }

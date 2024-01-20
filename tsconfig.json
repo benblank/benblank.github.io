@@ -4,15 +4,15 @@
     "@tsconfig/node20/tsconfig.json"
   ],
   "compilerOptions": {
-    "allowJs": false,
-    "checkJs": false,
+    "allowImportingTsExtensions": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "noEmit": true,
     "outDir": "build",
 
     // Let ESLint handle these.
     "noUnusedLocals": false,
     "noUnusedParameters": false
   },
-  "include": ["src/**/*.ts"]
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
 }
