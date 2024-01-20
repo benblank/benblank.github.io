@@ -1,0 +1,121 @@
+<style>
+  #add-color {
+    --border-width: 1px;
+    --margin-horizontal: 1lh;
+    background: lightgray;
+    border: var(--border-width) solid darkgray;
+    margin: 0.5lh var(--margin-horizontal);
+    padding: 0;
+    width: calc(100% - 2 * var(--border-width) - 2 * var(--margin-horizontal));
+  }
+
+  #colors {
+    list-style: none;
+    margin: 0.5lh 1lh;
+    padding: 0;
+  }
+
+  #colors .color {
+    --color-padding-horizontal: 0;
+    --color-padding-vertical: 0.2lh;
+    padding: var(--color-padding-vertical) var(--color-padding-horizontal);
+  }
+
+  #colors .definition {
+    color: gray;
+    font-family: monospace;
+    font-size: smaller;
+  }
+
+  #colors .delete,
+  #colors .edit {
+    border: 0;
+    padding: 0;
+  }
+
+  #colors .swatch {
+    display: inline-block;
+    height: 1lh;
+    margin-bottom: calc(0 - var(--color-padding-vertical));
+    margin-top: calc(0 - var(--color-padding-vertical));
+  }
+
+  #colors .swatch-primary {
+    margin-left: calc(0 - var(--color-padding-horizontal));
+    width: 2lh;
+  }
+
+  button {
+    appearance: none;
+    font-family: inherit;
+    font-size: inherit;
+  }
+</style>
+
+<script type="module">
+  const colorList = document.getElementById("colors");
+  /** @type {HTMLTemplateElement} */
+  const colorTemplate = document.getElementById("new-color");
+
+  function addColor({ name, definition }) {
+    /** @type {HTMLElement} */
+    const color = colorTemplate.content.firstElementChild.cloneNode(true);
+
+    color.dataset.definition = definition;
+    color.dataset.name = name;
+    color.querySelector(".definition").textContent = definition;
+    color.querySelector(".name").textContent = name;
+    color
+      .querySelector(".swatch-primary")
+      .setAttribute("style", "background-color:" + definition);
+
+    colorList.append(color);
+  }
+
+  function loadColors() {
+    JSON.parse(localStorage.getItem("colors") ?? "[]").forEach(addColor);
+  }
+
+  function saveColors() {
+    const colorList = document.getElementById("colors");
+    const colors = [];
+
+    for (const color of colorList.children) {
+      colors.push({
+        definition: color.dataset.definition,
+        name: color.dataset.name,
+      });
+    }
+
+    localStorage.setItem("colors", JSON.stringify(colors));
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("add-color").addEventListener("click", () => {
+      addColor({ name: "--new-color", definition: "#7f7f7f" });
+      saveColors();
+    });
+
+    loadColors();
+  });
+
+  window.setInterval(() => {
+    if (colorList.children.length === 0) {
+      loadColors();
+    }
+  }, 500);
+</script>
+
+<ul id="colors"></ul>
+
+<button id="add-color">+</button>
+
+<template id="new-color">
+  <li class="color">
+    <span class="swatch swatch-primary">&nbsp;</span>
+    <span class="name"></span>
+    <span class="definition"></span>
+    <button class="edit">✏</button>
+    <button class="delete">🗑</button>
+  </li>
+</template>

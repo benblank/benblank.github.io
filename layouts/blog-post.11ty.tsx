@@ -7,10 +7,12 @@ export default class BlogPostLayout {
 
   render({ content, title }: Record<string, unknown>) {
     return (
-      <article>
-        <h1>{title}</h1>
-        {content}
-      </article>
+      // I really like the syntax highlighing which comes with JSX (versus
+      // template strings), but I have to question whether it's worth it if I
+      // end up needing to write stuff like this.
+      <article
+        dangerouslySetInnerHTML={{ __html: <h1>{title}</h1> + content }}
+      />
     );
   }
 }

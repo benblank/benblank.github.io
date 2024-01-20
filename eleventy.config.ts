@@ -42,6 +42,6 @@ export default (eleventyConfig: UserConfig): DeepPartial<LocalConfig> => {
       layouts: "../layouts",
     },
 
-    templateFormats: ["11ty.js", "md"],
+    templateFormats: ["11ty.js", "html", "md"],
   };
 };

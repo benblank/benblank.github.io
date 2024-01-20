@@ -30,7 +30,7 @@ export default class BaseLayout {
 
     return (
       // Directives don't work in JSX.
-      "<!doctype html>" +
+      "<!DOCTYPE html>" +
       (
         <html lang="en">
           <head>
