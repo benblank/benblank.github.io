@@ -53,57 +53,133 @@
 </style>
 
 <script type="module">
-  const colorList = document.getElementById("colors");
-  /** @type {HTMLTemplateElement} */
-  const colorTemplate = document.getElementById("new-color");
+  /**
+   * @typedef ColorData
+   * @property {string} definition
+   * @property {string} name
+   */
 
-  function addColor({ name, definition }) {
+  /** @type {HTMLButtonElement} */
+  let addColorButton = null;
+
+  /** @type {HTMLElement} */
+  let colorList = null;
+
+  /** @type {HTMLTemplateElement} */
+  let colorTemplate = null;
+
+  function addColor(/** @type {ColorData} */ { name, definition }) {
     /** @type {HTMLElement} */
     const color = colorTemplate.content.firstElementChild.cloneNode(true);
 
     color.dataset.definition = definition;
     color.dataset.name = name;
     color.querySelector(".definition").textContent = definition;
-    color.querySelector(".name").textContent = name;
+
+    const nameElement = color.querySelector(".name");
+
+    nameElement.textContent = name;
+    nameElement.addEventListener("blur", updateName.bind(null, color));
+
     color
       .querySelector(".swatch-primary")
       .setAttribute("style", "background-color:" + definition);
 
+    color
+      .querySelector(".delete")
+      .addEventListener("click", deleteColor.bind(null, color));
+
     colorList.append(color);
   }
 
-  function loadColors() {
+  // function addUniversalEventListener(
+  //   /** @type {HTMLElement} */ element,
+  //   /** @type {(event: Event) => void} */ handler,
+  // ) {
+  //   const seen = new Set();
+
+  //   for (let key in element) {
+  //     if (key.startsWith("on")) {
+  //       element.addEventListener(key.slice(2).toLowerCase(), (event) => {
+  //         if (!seen.has(event.type)) {
+  //           seen.add(event.type);
+  //           handler(event);
+  //         }
+  //       });
+  //     }
+  //   }
+  // }
+
+  function deleteColor(/** @type {HTMLElement} */ color) {
+    color.remove();
+
+    saveColors();
+  }
+
+  function normalizeName(/** @type {string} */ name) {
+    return (
+      name
+        ?.toLowerCase()
+        .replace(/'/g, "")
+        .replace(/[^a-z]+/g, "-")
+        .replace(/^-?/, "--")
+        .replace(/-$/, "") ?? "--unknown"
+    );
+  }
+
+  function onContentLoaded() {
+    if (!addColorButton || addColorButton.ownerDocument !== document) {
+      addColorButton = document.getElementById("add-color");
+
+      addColorButton.addEventListener("click", () => {
+        addColor({ name: "--new-color", definition: "#7f7f7f" });
+        saveColors();
+      });
+    }
+
+    if (!colorList || colorList.ownerDocument !== document) {
+      colorList = document.getElementById("colors");
+    }
+
+    if (!colorTemplate || colorTemplate.ownerDocument !== document) {
+      colorTemplate = document.getElementById("new-color");
+    }
+
+    // Load colors.
     JSON.parse(localStorage.getItem("colors") ?? "[]").forEach(addColor);
   }
 
   function saveColors() {
-    const colorList = document.getElementById("colors");
+    /** @type {Array<ColorData>} */
     const colors = [];
 
     for (const color of colorList.children) {
-      colors.push({
-        definition: color.dataset.definition,
-        name: color.dataset.name,
-      });
+      const { definition, name } = color.dataset;
+
+      colors.push({ definition, name });
     }
 
     localStorage.setItem("colors", JSON.stringify(colors));
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("add-color").addEventListener("click", () => {
-      addColor({ name: "--new-color", definition: "#7f7f7f" });
-      saveColors();
-    });
+  function updateName(/** @type {HTMLElement} */ color) {
+    const nameElement = color.querySelector(".name");
+    const name = normalizeName(nameElement.textContent);
 
-    loadColors();
-  });
+    nameElement.textContent = name;
+    color.dataset.name = name;
 
+    saveColors();
+  }
+
+  document.addEventListener("DOMContentLoaded", onContentLoaded);
+
+  // Hot reloading doesn't re-trigger DOMContentLoaded.
   window.setInterval(() => {
-    if (colorList.children.length === 0) {
-      loadColors();
+    if (!colorList || colorList.children.length === 0) {
+      onContentLoaded();
     }
-  }, 500);
+  }, 1000);
 </script>
 
 <ul id="colors"></ul>
@@ -113,7 +189,7 @@
 <template id="new-color">
   <li class="color">
     <span class="swatch swatch-primary">&nbsp;</span>
-    <span class="name"></span>
+    <span class="name" contenteditable></span>
     <span class="definition"></span>
     <button class="edit">✏</button>
     <button class="delete">🗑</button>
