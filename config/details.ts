@@ -24,7 +24,7 @@ export function detailsConfig(eleventyConfig: UserConfig) {
         const match = token.info.trim().match(DETAILS_PATTERN);
 
         if (!match) {
-          throw new Error("Can't happen: rendering token which does not validate.");
+          throw new Error("Can't happen: rendering a token which does not validate.");
         }
 
         if (token.nesting === 1) {

@@ -16,13 +16,11 @@ type DeepPartial<T> = T extends Record<any, any>
 export default (eleventyConfig: UserConfig): DeepPartial<LocalConfig> => {
   eleventyConfig.setWatchThrottleWaitTime(500);
 
+  // Because Node has been given module hooks for TypeScript (see tsc-hooks.js),
+  // TS files can be aliased to the JS template language.
   eleventyConfig.addExtension(["11ty.ts", "11ty.tsx"], {
     key: "11ty.js",
   });
-
-  // By default, Eleventy ignores everything in `.gitignore`, but that includes
-  // the directory all the content is in.
-  eleventyConfig.setUseGitIgnore(false);
 
   eleventyConfig.addPassthroughCopy({ static: "." }, { dot: true });
   eleventyConfig.amendLibrary("md", (md) => md.use(markdownItAbbr));

@@ -89,7 +89,7 @@ export interface PassthroughCopyOptions {
 
 export type Plugin<T = unknown> =
   | UnknownFunction<T>
-  | { configFunction?: UnknownFunction<T>; initArguments: Record<unknown, unknown> };
+  | { configFunction?: UnknownFunction<T>; initArguments: Record<any, unknown> };
 
 export type TemplateFormat = "liquid" | "md" | "njk" | "html" | "11ty.js";
 
