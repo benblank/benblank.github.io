@@ -1,3 +1,26 @@
+import type { Stats } from "node:fs";
+import type { Stream } from "node:stream";
+
+type MaybePromise<T> = T | Promise<T>;
+
+// TODO: better name
+type DataInstance = {
+  eleventyDataKey?: Iterable<string>;
+};
+
+export type ExtensionOptions<DataKeys extends string = "data"> = {
+  compile(
+    inputContent: string,
+    inputPath: string,
+  ): MaybePromise<undefined | ((data: Record<any, unknown>) => MaybePromise<undefined | string>)>;
+
+  outputFileExtension?: string;
+  init?(): MaybePromise<void>;
+  read?: boolean;
+  getData: boolean | ReadonlyArray<string> | MaybePromise<(inputPath: string) => Record<any, unknown>>;
+  getInstanceFromInputPath?(): MaybePromise<DataInstance>;
+};
+
 export type LiquidTagCallback = (liquidEngine: unknown) => { parse: unknown; render: unknown };
 
 // TODO?: better/official name

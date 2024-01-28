@@ -12,6 +12,7 @@ declare module "@11ty/eleventy" {
   export type { default as TemplateConfig } from "@11ty/eleventy/src/TemplateConfig.js";
   export type { default as UserConfig } from "@11ty/eleventy/src/UserConfig.js";
 
+  export declare type ExtensionOptions = import("./types.d.ts").ExtensionOptions;
   export declare type LiquidTagCallback = import("./types.d.ts").LiquidTagCallback;
   export declare type LocalConfig = import("./types.d.ts").LocalConfig;
   export declare type PassthroughCopyOptions = import("./types.d.ts").PassthroughCopyOptions;

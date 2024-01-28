@@ -6,6 +6,7 @@ import { codeHighlightConfig } from "./config/code-highlight.ts";
 import { detailsConfig } from "./config/details.ts";
 import { headingAnchorsConfig } from "./config/heading-anchors.ts";
 import { prettierConfig } from "./config/prettier.ts";
+import { typescriptConfig } from "./config/typescript.ts";
 
 type DeepPartial<T> = T extends Record<any, any>
   ? {
@@ -30,6 +31,7 @@ export default (eleventyConfig: UserConfig): DeepPartial<LocalConfig> => {
   detailsConfig(eleventyConfig);
   headingAnchorsConfig(eleventyConfig);
   prettierConfig(eleventyConfig);
+  typescriptConfig(eleventyConfig);
 
   return {
     dir: {
